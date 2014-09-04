@@ -38,8 +38,5 @@ module.exports = (robot) ->
         if err
           msg.send "Something went wrong #{err}"
           return
-        msg.send "my sources say #{getIcedCoffe body} #{url}"
-
-getIcedCoffe = (body, callback) ->
- $ = cheerio.load(body)
- $('body h2').text()
+        response = JSON.parse(body)
+        msg.send "my sources say #{response.iiicw}"
