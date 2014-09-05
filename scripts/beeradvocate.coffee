@@ -27,7 +27,11 @@ module.exports = (robot) ->
           if (err)
             msg.send "There was an error contacting beeradvocate.com"
             return
-          msg.send "#{getBeerName body} | brewed by: #{getBrewery body} style: #{getBeerStyle body} #{getBeerABV body}"
+          msg.send "#{getBeerName body}"
+          msg.send "Brewed by: #{getBrewery body}" 
+          msg.send "Style: #{getBeerStyle body}"
+          msg.send "#{getBeerABV body}"
+          msg.send "www.beeradvocate.com#{getBeerLink body}"
 
 getBeerABV = (body, callback) ->
   $ = cheerio.load(body)
@@ -36,6 +40,10 @@ getBeerABV = (body, callback) ->
 getBeerName = (body, callback) ->
   $ = cheerio.load(body)
   $('div#rating_fullview_content_3 h6').text()
+
+getBeerLink = (body, callback) ->
+  $ = cheerio.load(body)
+  $('div#rating_fullview_content_3 h6 a').attr('href')
 
 getBeerStyle = (body, callback) ->
   $ = cheerio.load(body)
