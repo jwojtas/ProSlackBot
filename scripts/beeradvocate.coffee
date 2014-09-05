@@ -37,13 +37,17 @@ getBeerABV = (body, callback) ->
   $ = cheerio.load(body)
   $('div#rating_fullview_content_3').text().match(/\d+\.\d+/)[0] + " ABV"
 
-getBeerName = (body, callback) ->
+getBeerImage = (body, callback) ->
   $ = cheerio.load(body)
-  $('div#rating_fullview_content_3 h6').text()
+  $('#rating_fullview_beer_img a img').attr('src')
 
 getBeerLink = (body, callback) ->
   $ = cheerio.load(body)
   $('div#rating_fullview_content_3 h6 a').attr('href')
+
+getBeerName = (body, callback) ->
+  $ = cheerio.load(body)
+  $('div#rating_fullview_content_3 h6').text()
 
 getBeerStyle = (body, callback) ->
   $ = cheerio.load(body)
