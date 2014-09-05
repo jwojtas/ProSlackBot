@@ -28,27 +28,27 @@ module.exports = (robot) ->
             msg.send "There was an error contacting beeradvocate.com"
             return
           msg.send "#{getBeerName body}"
-          msg.send "Brewed by: #{getBrewery body}"
+          msg.send "Brewed by: #{getBrewery body}" 
           msg.send "Style: #{getBeerStyle body}"
           msg.send "#{getBeerABV body}"
           msg.send "www.beeradvocate.com#{getBeerLink body}"
-
-getBeerName = (body, callback) ->
-  $ = cheerio.load(body)
-  $('div#rating_fullview_content_3 h6').text()
-
-getBrewery = (body, callback) ->
-  $ = cheerio.load(body)
-  $($('div#rating_fullview_content_3 a')[1]).text()
-
-getBeerStyle = (body, callback) ->
-  $ = cheerio.load(body)
-  $($('div#rating_fullview_content_3 a')[2]).text()
 
 getBeerABV = (body, callback) ->
   $ = cheerio.load(body)
   $('div#rating_fullview_content_3').text().match(/\d+\.\d+/)[0] + " ABV"
 
+getBeerName = (body, callback) ->
+  $ = cheerio.load(body)
+  $('div#rating_fullview_content_3 h6').text()
+
 getBeerLink = (body, callback) ->
   $ = cheerio.load(body)
   $('div#rating_fullview_content_3 h6 a').attr('href')
+
+getBeerStyle = (body, callback) ->
+  $ = cheerio.load(body)
+  $($('div#rating_fullview_content_3 a')[2]).text()
+
+getBrewery = (body, callback) ->
+  $ = cheerio.load(body)
+  $($('div#rating_fullview_content_3 a')[1]).text()
