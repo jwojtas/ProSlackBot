@@ -27,6 +27,7 @@ module.exports = (robot) ->
           if (err)
             msg.send "There was an error contacting beeradvocate.com"
             return
+          msg.send "#{body}"
           msg.send "#{getBeerName body}"#| brewed by: #{getBrewery body} style: #{getBeerStyle body} #{getBeerABV body}"
 
 getBeerABV = (body, callback) ->
