@@ -20,13 +20,14 @@ cheerio = require('cheerio')
 
 module.exports = (robot) ->
   robot.respond /(a|advocate) beer?/i, (msg) ->
-    url = "http://www.beeradvocate.com/beer"
-    msg.http(url)
-       .get() (err, res, body) ->
-          if (err)
-            msg.send "There was an error contacting beeradvocate.com"
-            return
-          msg.send "#{getBeerName body} | brewed by: #{getBrewery body} style: #{getBeerStyle body} #{getBeerABV body}"
+    msg.send "I hear you but it isn't time for beer yet"
+    #url = "http://www.beeradvocate.com/beer"
+    #msg.http(url)
+    #   .get() (err, res, body) ->
+    #      if (err)
+    #        msg.send "There was an error contacting beeradvocate.com"
+    #        return
+    #      msg.send "#{getBeerName body} | brewed by: #{getBrewery body} style: #{getBeerStyle body} #{getBeerABV body}"
 
 getBeerABV = (body, callback) ->
   $ = cheerio.load(body)
