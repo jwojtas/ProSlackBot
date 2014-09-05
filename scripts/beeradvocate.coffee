@@ -27,11 +27,11 @@ module.exports = (robot) ->
           if (err)
             msg.send "There was an error contacting beeradvocate.com"
             return
-          msg.send "#{getBeerName body}"
-          msg.send "Brewed by: #{getBrewery body}" 
-          msg.send "Style: #{getBeerStyle body}"
-          msg.send "#{getBeerABV body}"
-          msg.send "www.beeradvocate.com#{getBeerLink body}"
+          msg.send "#{getBeerName body}\n" +
+                   "Brewed by: #{getBrewery body}\n" +
+                   "Style: #{getBeerStyle body}\n" +
+                   "#{getBeerABV body}\n" +
+                   "www.beeradvocate.com#{getBeerLink body}"
 
 getBeerABV = (body, callback) ->
   $ = cheerio.load(body)
