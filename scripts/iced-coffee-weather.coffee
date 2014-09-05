@@ -39,4 +39,4 @@ module.exports = (robot) ->
           msg.send "Something went wrong #{err}"
           return
         response = JSON.parse(body)
-        msg.send "my sources say #{response.iiicw.downcase()}"
+        msg.send "my sources say #{response.iiicw.toLowerCase()}"
