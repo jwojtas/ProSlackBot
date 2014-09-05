@@ -19,7 +19,7 @@
 cheerio = require('cheerio')
 
 module.exports = (robot) ->
-  robot.respond /(a|advocate) beer( me)?/i, (msg) ->
+  robot.respond /(a|advocate) beer?/i, (msg) ->
     url = "http://www.beeradvocate.com/beer"
     msg.http(url)
        .get() (err, res, body) ->
