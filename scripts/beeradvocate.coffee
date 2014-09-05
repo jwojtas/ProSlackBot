@@ -31,7 +31,7 @@ module.exports = (robot) ->
                    "Brewed by: #{getBrewery body}\n" +
                    "Style: #{getBeerStyle body}\n" +
                    "#{getBeerABV body}\n" +
-                   "www.beeradvocate.com#{getBeerLink body}\n"
+                   "www.beeradvocate.com#{getBeerLink body}\n" +
                    "#{getBeerImage body}"
 
 getBeerABV = (body, callback) ->
