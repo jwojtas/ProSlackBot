@@ -33,7 +33,7 @@ module.exports = (robot) ->
 
 testFunction = (body, callback) ->
   $ = cheerio.load(body)
-  $('div#rating_fullview').html()
+  $('div#rating_fullview_content_3').html()
 
 getBeerABV = (body, callback) ->
   $ = cheerio.load(body)
