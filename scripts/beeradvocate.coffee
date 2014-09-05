@@ -39,9 +39,8 @@ getBeerName = (body, callback) ->
 
 getBeerStyle = (body, callback) ->
   $ = cheerio.load(body)
-  $($('div#rating_fullview_content_3 a')[1]).text()
+  $($('div#rating_fullview_content_3 a')[2]).text()
 
 getBrewery = (body, callback) ->
   $ = cheerio.load(body)
-  $('div#rating_fullview_content_3 a').text()
-
+  $($('div#rating_fullview_content_3 a')[1]).text()
