@@ -22,6 +22,7 @@ module.exports = (robot) ->
   robot.respond /(a|advocate) beer?/i, (msg) ->
     url = "http://www.beeradvocate.com/beer"
     msg.http(url)
+       .header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.6 (KHTML, like Gecko) Chrome/20.0.1092.0 Safari/536.6')
        .get() (err, res, body) ->
           if (err)
             msg.send "There was an error contacting beeradvocate.com"
